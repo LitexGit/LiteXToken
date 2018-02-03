@@ -12,6 +12,6 @@ module.exports = async function(deployer) {
   // });
 
   deployer.deploy(LiteXToken);
-  deployer.deploy(LiteXTokenVesting, account_three, Math.floor(new Date().getTime()/1000), 0, 1000, 100, true);
+  // deployer.deploy(LiteXTokenVesting, account_three, Math.floor(new Date().getTime()/1000), 0, 1000, 100, true);
 
  };
