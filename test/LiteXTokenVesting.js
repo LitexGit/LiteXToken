@@ -19,7 +19,7 @@ contract('LiteXTokenVesting', function ([_, owner, beneficiary]) {
     this.token = await LiteXToken.new({ from: owner });
 
     this.start = latestTime() + duration.minutes(1); // +1 minute so it starts after contract instantiation
-    this.cliff = duration.days(1);
+    this.cliff = duration.days(30);
     this.duration = duration.days(1080);
     this.divider = duration.days(30);
 
@@ -36,7 +36,7 @@ contract('LiteXTokenVesting', function ([_, owner, beneficiary]) {
   });
 
   it('can be released after cliff', async function () {
-    await increaseTimeTo(this.start + this.cliff + duration.weeks(1));
+    await increaseTimeTo(this.start + this.cliff + duration.days(1080));
     await this.vesting.release(this.token.address).should.be.fulfilled;
   });
 
